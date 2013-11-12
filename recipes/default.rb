@@ -27,6 +27,5 @@ log "google instance id: #{node[:google_cloud][:instance_id]}"
 log "google zone id: #{node[:google_cloud][:zone_id]}"
 
 include_recipe "google_cloud::default"
-log node[:google_cloud][:instance]
 
 rightscale_marker :end
