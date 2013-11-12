@@ -18,10 +18,6 @@
 #
 rightscale_marker :begin
 
-chef_gem "json" do
-  action :install
-end
-
 log "google project id: #{node[:google_cloud][:project]}"
 log "google instance id: #{node[:google_cloud][:instance_id]}"
 log "google zone id: #{node[:google_cloud][:zone_id]}"
