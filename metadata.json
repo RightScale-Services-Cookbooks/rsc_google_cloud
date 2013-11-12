@@ -48,6 +48,35 @@
       ],
       "calculated": false,
       "type": "string"
+    },
+    "google_cloud/region": {
+      "display_name": "Google Cloud Region",
+      "description": "Google Cloud Region",
+      "choice": [
+        "us-central1",
+        "us-central2",
+        "europe-west1"
+      ],
+      "required": "required",
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    },
+    "google_cloud/lb/tag": {
+      "display_name": "Google LB Firewall Tag",
+      "description": "Google LB Firewall Tag",
+      "required": "optional",
+      "default": "www",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
     }
   },
   "groupings": {
