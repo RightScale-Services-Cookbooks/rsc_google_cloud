@@ -16,3 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+rightscale_marker :begin
+
+chef_gem "json" do
+  action :install
+end
+
+node[:google_cloud][:project]=node[:rsc_google_cloud][:instance_id].split('/')[1]
+node[:google_cloud][:instance_id]=node[:rsc_google_cloud][:instance_id].split('/').last
+
+include_recipe "google_cloud::default"
+
+rightscale_marker :end
