@@ -18,3 +18,9 @@ attribute "rsc_google_cloud/instance_id",
   :description => "RightScale Instance ID, should be set to Env:INSTANCE_ID",
   :required => "required",
   :recipes => [ "rsc_google_cloud::default" ]
+
+attribute "google_cloud/lb/pool_name",
+  :display_name => "Google LB Pool Name",
+  :description => "Google LB Pool Name",
+  :required => "required",
+  :recipes => [ "rsc_google_cloud::lb_do_attach", "rsc_google_cloud::lb_do_detach" ]
