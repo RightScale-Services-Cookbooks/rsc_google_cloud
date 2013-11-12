@@ -10,6 +10,8 @@ depends "rightscale"
 depends "google_cloud"
 
 recipe "rsc_google_cloud::default", "set's up the rightscale google cloud environment"
+recipe "rsc_google_cloud::lb_do_attach", "attaches from RightScale to gce-lb"
+recipe "rsc_google_cloud::lb_do_detach", "detaches from RightScale to gce-lb"
 
 attribute "rsc_google_cloud/instance_id",
   :display_namme => "RightScale Instance ID",
