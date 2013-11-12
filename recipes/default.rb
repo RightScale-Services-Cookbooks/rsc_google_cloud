@@ -22,10 +22,9 @@ chef_gem "json" do
   action :install
 end
 
-node[:google_cloud][:project]=node[:rsc_google_cloud][:instance_id].split('/')[1]
 log "google project id: #{node[:google_cloud][:project]}"
-node[:google_cloud][:instance_id]=node[:rsc_google_cloud][:instance_id].split('/').last
 log "google instance id: #{node[:google_cloud][:instance_id]}"
+log "google zone id: #{node[:google_cloud][:zone_id]}"
 
 include_recipe "google_cloud::default"
 log node[:google_cloud][:instance]
