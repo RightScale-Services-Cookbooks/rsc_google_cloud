@@ -14,5 +14,5 @@ recipe "rsc_google_cloud::default", "set's up the rightscale google cloud enviro
 attribute "rsc_google_cloud/instance_id",
   :display_namme => "RightScale Instance ID",
   :description => "RightScale Instance ID, should be set to Env:INSTANCE_ID",
-  :optional => "required",
+  :required => "required",
   :recipes => [ "rsc_google_cloud::default" ]
