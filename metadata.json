@@ -77,6 +77,19 @@
       "recipes": [
 
       ]
+    },
+    "google_cloud/lb/ip": {
+      "display_name": "Google LB IP",
+      "description": "Google Cloud Static IP",
+      "required": "required",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
     }
   },
   "groupings": {

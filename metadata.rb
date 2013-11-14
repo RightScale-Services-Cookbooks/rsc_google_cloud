@@ -36,3 +36,8 @@ attribute "google_cloud/lb/tag",
   :description => "Google LB Firewall Tag",
   :required => "optional",
   :default => "www"
+
+attribute "google_cloud/lb/ip",
+  :display_name => "Google LB IP",
+  :description => "Google Cloud Static IP",
+  :required => "required"
