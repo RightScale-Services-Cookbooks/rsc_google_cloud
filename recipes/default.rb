@@ -22,6 +22,26 @@ log "google project id: #{node[:google_cloud][:project]}"
 log "google instance id: #{node[:google_cloud][:instance_id]}"
 log "google zone id: #{node[:google_cloud][:zone_id]}"
 
+cookbook_file "/tmp/google-daemon.tar.gz" do
+  source "google-daemon.tar.gz"
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+execute "tar -xvpzf /tmp/google-daemon.tar.gz -C /"
+
+cookbook_file "/tmp/google-startup-scripts.tar.gz" do
+  source "google-startup-scripts.tar.gz"
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+execute "tar -xvpzf /tmp/google-startup-scripts.tar.gz -C /"
+
 include_recipe "google_cloud::default"
 
 rightscale_marker :end
