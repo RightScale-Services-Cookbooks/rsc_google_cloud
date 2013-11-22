@@ -42,6 +42,8 @@ end
 
 execute "tar -xvpzf /tmp/google-startup-scripts.tar.gz -C /"
 
+execute "/sbin/initctl start google-address-manager" 
+
 include_recipe "google_cloud::default"
 
 rightscale_marker :end
