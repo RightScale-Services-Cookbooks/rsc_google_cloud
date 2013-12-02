@@ -42,7 +42,14 @@ end
 
 execute "tar -xvpzf /tmp/google-startup-scripts.tar.gz -C /"
 
-execute "/sbin/initctl start google-address-manager" 
+case node[:platform]
+when "centos","redhat"
+  execute "/sbin/initctl start google-address-manager" 
+when "ubuntu","debian"
+  service "google-address-manager" do
+    action [ :enable, :start ]
+  end
+end
 
 include_recipe "google_cloud::default"
 
