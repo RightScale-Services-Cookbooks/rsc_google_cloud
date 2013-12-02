@@ -44,6 +44,6 @@ attribute "google_cloud/lb/ip",
 
 attribute "google_cloud/instance_id",
   :display_name => "Google Cloud Instance ID",
-  :description => "Google Cloud Instance ID, don't use if using rsc_google_cloud::default"
+  :description => "Google Cloud Instance ID, don't use if using rsc_google_cloud::default",
   :required => "optional",
   :recipes => [ "rsc_google_cloud::default" ]
