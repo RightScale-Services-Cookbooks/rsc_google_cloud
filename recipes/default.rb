@@ -51,6 +51,5 @@ when "ubuntu","debian"
   end
 end
 
-include_recipe "google_cloud::default"
 
 rightscale_marker :end
