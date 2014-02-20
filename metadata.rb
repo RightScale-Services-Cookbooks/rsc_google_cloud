@@ -47,3 +47,10 @@ attribute "google_cloud/instance_id",
   :description => "Google Cloud Instance ID, don't use if using rsc_google_cloud::default",
   :required => "optional",
   :recipes => [ "rsc_google_cloud::default" ]
+
+attribute "rsc_google_cloud/datacenter",
+  :display_name => "Google/RightScale Datacenter",
+  :description => "Google/RightScale Datacenter- Env/datacenter",
+  :required => "required",
+  :recipes => [ "rsc_google_cloud::default" ]
+
