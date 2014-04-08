@@ -16,7 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-rightscale_marker :begin
+
+marker 'recipe_start_rightscale' do
+  template 'rightscale_audit_entry.erb'
+end
 
 log "google project id: #{node[:google_cloud][:project]}"
 log "google instance id: #{node[:google_cloud][:instance_id]}"
@@ -50,6 +53,3 @@ when "ubuntu","debian"
     action [ :enable, :start ]
   end
 end
-
-
-rightscale_marker :end

@@ -6,7 +6,7 @@ description      'Installs/Configures rsc_google_cloud'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.1'
 
-depends "rightscale"
+depends "marker"
 depends "google_cloud"
 
 recipe "rsc_google_cloud::default", "set's up the rightscale google cloud environment"
