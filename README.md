@@ -1,55 +1,29 @@
 rsc_google_cloud Cookbook
 =========================
-TODO: Enter the cookbook description here.
+Manages Google Compute Engine Resources
 
-e.g.
-This cookbook makes your favorite breakfast sandwhich.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+You need access to the Google Compute Engine Console and Access to the API credentials.
+https://console.developers.google.com/project?authuser=0
 
-e.g.
-#### packages
-- `toaster` - rsc_google_cloud needs toaster to brown your bagel.
+Depends on gce cookbook: https://github.com/RightScale-Services-Cookbooks/google-compute-engine
+
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
-
-e.g.
-#### rsc_google_cloud::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['rsc_google_cloud']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+*  node["rsc_google_cloud"]["ip"]["name"] - name of the static IP from the google console
+*  node["rsc_google_cloud"]["instance_id"] - name of the server to update. use ENV:INSTANCE
+*  node["rsc_google_cloud"]["region"] - Google Clould regiond.  use ENV:DATACENTER
+*  node["rsc_google_cloud"]["project_id"] - Google API project name
+*  node["rsc_google_cloud"]["client_email"] - Google API client email 
+*  node["rsc_google_cloud"]["json_key"]  - Google API JSON key
 
 Usage
 -----
 #### rsc_google_cloud::default
-TODO: Write usage instructions for each cookbook.
-
-e.g.
-Just include `rsc_google_cloud` in your node's `run_list`:
-
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[rsc_google_cloud]"
-  ]
-}
-```
+Include do_assign_static_ip recipe early in your runlist.  
 
 Contributing
 ------------

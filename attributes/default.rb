@@ -1,5 +1,11 @@
+if node[:cloud][:provider]!='vagrant'
 require '/var/spool/cloud/meta-data.rb'
+end
 
-default[:google_cloud][:project]=node[:rsc_google_cloud][:instance_id].split('/')[1]
-default[:google_cloud][:instance_id]=node[:rsc_google_cloud][:instance_id].split('/').last
-default[:google_cloud][:zone_id]=node[:rsc_google_cloud][:datacenter].split('/').last
+default[:rsc_google_cloud][:project_id]=nil
+default[:rsc_google_cloud][:instance_id]=nil
+default[:rsc_google_cloud][:region]=nil
+default[:rsc_google_cloud][:json_key]=nil
+default[:rsc_google_cloud][:ip][:name]=nil
+
+default["rsc_google_cloud"]["json_key"]= ""

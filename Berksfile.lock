@@ -1,0 +1,22 @@
+{
+  "sources": {
+    "rsc_google_cloud": {
+      "path": "."
+    },
+    "gce": {
+      "path": "../google-compute-engine"
+    },
+    "apt": {
+      "locked_version": "2.6.0"
+    },
+    "yum-epel": {
+      "locked_version": "0.4.0"
+    },
+    "marker": {
+      "locked_version": "1.0.1"
+    },
+    "yum": {
+      "locked_version": "3.3.2"
+    }
+  }
+}

@@ -16,40 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-rightscale_marker :begin
 
-log "google project id: #{node[:google_cloud][:project]}"
-log "google instance id: #{node[:google_cloud][:instance_id]}"
-log "google zone id: #{node[:google_cloud][:zone_id]}"
-
-cookbook_file "/tmp/google-daemon.tar.gz" do
-  source "google-daemon.tar.gz"
-  owner "root"
-  group "root"
-  mode "0644"
-  action :create
+marker "recipe_start_rightscale" do
+  template "rightscale_audit_entry.erb"
 end
 
-execute "tar -xvpzf /tmp/google-daemon.tar.gz -C /"
+include_recipe "gce::default" 
 
-cookbook_file "/tmp/google-startup-scripts.tar.gz" do
-  source "google-startup-scripts.tar.gz"
-  owner "root"
-  group "root"
-  mode "0644"
-  action :create
-end
-
-execute "tar -xvpzf /tmp/google-startup-scripts.tar.gz -C /"
-
-case node[:platform]
-when "centos","redhat"
-  execute "/sbin/initctl start google-address-manager" 
-when "ubuntu","debian"
-  service "google-address-manager" do
-    action [ :enable, :start ]
-  end
-end
-
-
-rightscale_marker :end
+log "google project_id: #{node[:rsc_google_cloud][:project_id]}"
+log "google instance_id: #{node[:rsc_google_cloud][:instance_id]}"
+log "google region: #{node[:rsc_google_cloud][:region]}"
