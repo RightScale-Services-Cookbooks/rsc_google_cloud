@@ -20,7 +20,17 @@
 marker "recipe_start_rightscale" do
   template "rightscale_audit_entry.erb"
 end
-
+case node[:cloud][:provider_family]
+when 'debian'
+  %w{zlib1g-dev build-essential}.each do |pkg| 
+    p = package pkg do 
+      action :nothing 
+    end 
+    p.run_action(:install) 
+  end
+when 'rhel'
+  log 'Nothing here yet'
+end
 include_recipe "gce::default" 
 
 log "google project_id: #{node[:rsc_google_cloud][:project_id]}"
