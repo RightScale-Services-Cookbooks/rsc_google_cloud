@@ -20,7 +20,12 @@
 marker "recipe_start_rightscale" do
   template "rightscale_audit_entry.erb"
 end
-case node[:cloud][:provider_family]
+
+#update rubygems and the source to allow installing the correct
+#version of fog
+chef_gem 'rubygems-update'
+
+case node[:platform_family]
 when 'debian'
   %w{zlib1g-dev build-essential}.each do |pkg| 
     p = package pkg do 
@@ -29,7 +34,12 @@ when 'debian'
     p.run_action(:install) 
   end
 when 'rhel'
-  log 'Nothing here yet'
+  %w{gcc ruby-devel zlib-devel}.each do |pkg| 
+    p = package pkg do 
+      action :nothing 
+    end 
+    p.run_action(:install) 
+  end
 end
 include_recipe "gce::default" 
 
