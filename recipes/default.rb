@@ -24,6 +24,7 @@ end
 #update rubygems and the source to allow installing the correct
 #version of fog
 chef_gem 'rubygems-update'
+execute '/opt/rightscale/sandbox/bin/gem sources -a https://rubygems.org'
 
 case node[:platform_family]
 when 'debian'
