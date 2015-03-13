@@ -24,7 +24,6 @@ end
 #update rubygems and the source to allow installing the correct
 #version of fog
 chef_gem 'rubygems-update'
-execute '/opt/rightscale/sandbox/bin/gem sources -a https://rubygems.org'
 
 case node[:platform_family]
 when 'debian'
@@ -42,15 +41,16 @@ when 'rhel'
     p.run_action(:install) 
   end
 end
+
 include_recipe "gce::default" 
 
-#remove rightscale incompatible gem
+#rightscale unsupported
 chef_gem "activesupport" do
   action :remove
 end
 
 chef_gem "activesupport" do
-  version '2.3.5' #rightscale supported
+  version '3.2.0' #rightscale supported
   action :install
 end
 
