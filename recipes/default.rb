@@ -43,6 +43,16 @@ when 'rhel'
 end
 include_recipe "gce::default" 
 
+#remove rightscale incompatible gem
+chef_gem "activesupport" do
+  action :remove
+end
+
+chef_gem "activesupport" do
+  version '2.3.5' #rightscale supported
+  action :install
+end
+
 log "google project_id: #{node[:rsc_google_cloud][:project_id]}"
 log "google instance_id: #{node[:rsc_google_cloud][:instance_id]}"
 log "google region: #{node[:rsc_google_cloud][:region]}"
