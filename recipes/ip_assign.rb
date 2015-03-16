@@ -16,7 +16,20 @@ gce_ip node["rsc_google_cloud"]["ip"]["name"] do
   project_id node["rsc_google_cloud"]["project_id"]
   client_email node["rsc_google_cloud"]["client_email"]
   json_key node["rsc_google_cloud"]["json_key"] 
-  timeout 300 #5 min
+  timeout 600 #5 min
   
   action :assign
+end
+# fix compatibly issues with activesupport
+
+log 'Remove GCE supported ActiveSupport'
+#remove rightscale unsupported installed by gce::default
+chef_gem "activesupport" do
+  action :remove
+end
+
+log 'Add Rightscale supported activesupport'
+chef_gem "activesupport" do
+  version '2.3.5' #rightscale supported
+  action :install
 end

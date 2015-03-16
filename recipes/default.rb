@@ -42,17 +42,13 @@ when 'rhel'
   end
 end
 
-include_recipe "gce::default" 
-
-#rightscale unsupported
+log 'Remove Rightscale supported ActiveSupport'
+#remove rightscale unsupported installed by gce::default
 chef_gem "activesupport" do
   action :remove
 end
 
-chef_gem "activesupport" do
-  version '3.2.0' #rightscale supported
-  action :install
-end
+include_recipe "gce::default" 
 
 log "google project_id: #{node[:rsc_google_cloud][:project_id]}"
 log "google instance_id: #{node[:rsc_google_cloud][:instance_id]}"
