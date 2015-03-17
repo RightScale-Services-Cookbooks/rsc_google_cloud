@@ -75,7 +75,7 @@ Vagrant.configure("2") do |config|
   # config.berkshelf.except = []
 
   config.vm.provision :chef_solo do |chef|
-    chef.log_level='info'
+    chef.log_level='debug'
     chef.json = {
       :vagrant => {
         :box_name => 'google'
@@ -86,12 +86,12 @@ Vagrant.configure("2") do |config|
         private_ips: ['10.0.0.1']
       },
       rsc_google_cloud: {
-          ip: {name: 'frontend-lb-01-prod'},
-          instance_id:'i-12317e852',
-          region:'us-central1',
+          ip: {name:'frontend-lb-01-prod'},
+          instance_id:'foo/bar/i-2c3d02777',
+          region:'foo/bar/us-central1',
           project_id:'hello-rightscale002',
           client_email:'559794233783-c7p9vaag3ih2v11v8o6rfpmf857qs0jq@developer.gserviceaccount.com',
-          json_key: '{
+          json_key:'{
   "private_key_id": "0e8761e45a0ad19ac1b39cc97a29a3a185fd9c4c",
   "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOhQNqMP8SKvZlBf\n80CRhVhsTcwieVlF8viYyjE2ecDhlj0RQLah/KOqxlCjoFwmnJJITCh+nlhC5/A8\n6sRApXned1714UvIfL2lz4BD5dEY5D1wtIS5HME5pEYcm+DKnTNdtHoP0Q1GLW0h\nZY8y+/WO9ZhTVyOsLm1Ku1k/BIVZAgMBAAECgYAbfVppwzoqe4zk1+XF7zJTO0Wd\ncTrgyHku142dcy/HFiqcAU2iDtsBVvTul94i6WK/oJR6ejksgoZFlD/Hh0rNPjuj\nHYhkmgcWvag+Q/zua/nvE/bDkQQ6zrlRc600UIm2NxBL/gaoapBRPsiDbfQfI0LR\nKp7/O8qLm78EMvTmDQJBAPsPB9rMHW5n56x5jrkuzgz3ASWQmG93QdHvgTR0pLwv\nM+F/G6q8EXiSjhveO+OKf0w8Is5qFq6a0erz0Xon5osCQQDs4rvAJ12cFJzGPDsE\nQTcboNA4ELFvtv/Ru7IXPP02ReXX1HrOf10DWwjG8qMVGDr11+oAHhOqbeUtUWs/\nl+QrAkEA0rKNnAF7ncHT+7rUnfN6+ASAUN9mHv4OHjsLy1MtQcW3m8LKHGLTosYU\nP60lw9Pi+77oUyVTvduu2qkfH47G+wJAG/6bk5TTYjupX2AE1XbjjVdO5CFM5tfo\nmZ+l50sk3YIbLIuGy9qPYnMisWhBT5/ib+VJWSQ0zMJaACYMF6LaqwJBAPnN3Eq8\nqElXaCMEA5onO5aOPBA8OWMxcXz2B4MgXJtmmbvMrCnmeWdPxoPsvvNl7XBKaD1S\nSl9mOQM1k9HI3IE\u003d\n-----END PRIVATE KEY-----\n",
   "client_email": "559794233783-c7p9vaag3ih2v11v8o6rfpmf857qs0jq@developer.gserviceaccount.com",

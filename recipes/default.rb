@@ -44,11 +44,35 @@ end
 
 log 'Remove Rightscale supported ActiveSupport'
 #remove rightscale unsupported installed by gce::default
+
+
+chef_gem "google-api-client" do
+  version '0.7.1'
+  action :install
+end
+
+chef_gem "chef-rewind"
+require 'chef/rewind'
+
+include_recipe "gce::default"
+
+unwind "chef_gem[google-api-client]"
+unwind "chef_gem[activesupport]"
+
 chef_gem "activesupport" do
+  #version '~> 4.0.0'
   action :remove
 end
 
-include_recipe "gce::default" 
+chef_gem "google-api-client" do
+  version '> 0.7'
+  action :remove
+end
+
+chef_gem "google-api-client" do
+  version '0.7.1'
+  action :install
+end
 
 log "google project_id: #{node[:rsc_google_cloud][:project_id]}"
 log "google instance_id: #{node[:rsc_google_cloud][:instance_id]}"

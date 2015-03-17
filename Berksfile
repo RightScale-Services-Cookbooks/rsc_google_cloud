@@ -2,8 +2,8 @@ site :opscode
 
 metadata
 
-cookbook 'gce', github: 'RightScale-Services-Cookbooks/google-compute-engine'
-#cookbook 'gce', path: '../google-compute-engine'
+#cookbook 'gce', github: 'RightScale-Services-Cookbooks/google-compute-engine'
+cookbook 'gce', path: '../google-compute-engine'
 
 group :integration do
   cookbook 'apt', '~> 2.6.0'
