@@ -18,7 +18,7 @@ attribute "rsc_google_cloud/instance_id",
   :display_namme => "RightScale Instance ID",
   :description => "RightScale Instance ID, should be set to Env:INSTANCE_ID",
   :required => "required",
-  :recipes => [ "rsc_google_cloud::default" ]
+  :recipes => [ "rsc_google_cloud::default","rsc_google_cloud::ip_assign" ]
 
 attribute "rsc_google_cloud/lb/pool_name",
   :display_name => "Google LB Pool Name",
@@ -41,31 +41,31 @@ attribute "rsc_google_cloud/ip/name",
   :display_name => "Google Static IP Name",
   :description => "The name of the Static IP from the Google Compute Console. Compute/Compute Engine/Networks",
   :required => "required",
-  :recipes => [ "rsc_google_cloud::default" ]
+  :recipes => [ "rsc_google_cloud::default","rsc_google_cloud::ip_assign" ]
 
 attribute "rsc_google_cloud/project_id",
   :display_name => "Google API Project ID",
   :description => "Google API Project ID",
   :required => "required",
-  :recipes => [ "rsc_google_cloud::default" ]
+  :recipes => [ "rsc_google_cloud::default","rsc_google_cloud::ip_assign" ]
 
 attribute "rsc_google_cloud/client_email",
   :display_name => "Google API Client Email",
   :description => "Google API Project Client Email",
   :required => "required",
-  :recipes => [ "rsc_google_cloud::default" ]
+  :recipes => [ "rsc_google_cloud::default","rsc_google_cloud::ip_assign" ]
 
 attribute "rsc_google_cloud/json_key",
   :display_name => "Google API JSON key",
   :description => "Google API Project JSON Key from API Credentials. example: cred:google_json_key",
   :required => "required",
-  :recipes => [ "rsc_google_cloud::default" ]
+  :recipes => [ "rsc_google_cloud::default","rsc_google_cloud::ip_assign" ]
 
 attribute "rsc_google_cloud/region",
   :display_name => "Google Region",
   :description => "Google Region env:datacenter",
   :required => "required",
-  :recipes => [ "rsc_google_cloud::default" ]
+  :recipes => [ "rsc_google_cloud::default","rsc_google_cloud::ip_assign" ]
 
 
 
